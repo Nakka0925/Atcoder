@@ -1,21 +1,42 @@
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
+using vi = vector<int>;
+using vvi = vector<vi>;
+#define rep(i,n) for (int i = 0; i < (n); i++)
+const int mod=998244353;
 
-int main() {
-    vector<int> vec = {3, 1, 4, 6, 5};
+vector<int> a = {1, 14, 32, 51, 51, 51, 243, 419, 750, 910};
 
-    // ソート：二分探索はソートされた配列に対して適用する
-    sort(vec.begin(), vec.end());  // 1, 3, 4, 5, 6
+// index が条件を満たすかどうか
+bool isOK(int index, int key) {
+    if (a[index] >= key) return true;
+    else return false;
+}
 
-    // 0 - 10 の整数が vec に含まれているか検索
-    for (int key = 0; key <= 10; ++key) {
-        if (binary_search(vec.begin(), vec.end(), key)) {
-            cout << key << ": " << "found" << std::endl;
-        } else {
-            cout << key << ": " << "not found" << std::endl;
-        }
+// 汎用的な二分探索のテンプレ
+int binary_search(int key) {
+    int left = -1; //「index = 0」が条件を満たすこともあるので、初期値は -1
+    int right = (int)a.size(); // 「index = a.size()-1」が条件を満たさないこともあるので、初期値は a.size()
+
+    /* どんな二分探索でもここの書き方を変えずにできる！ */
+    while (right - left > 1) {
+        int mid = left + (right - left) / 2;
+
+        if (isOK(mid, key)) right = mid;
+        else left = mid;
     }
 
-    return 0;
+    /* left は条件を満たさない最大の値、right は条件を満たす最小の値になっている */
+    return right;
+}
+
+int main() {
+    cout << binary_search(51) << endl; // a[3] = 51 (さっきは 4 を返したが今回は「最小の index」なので 3)
+    cout << binary_search(1) << endl; // a[0] = 1
+    cout << binary_search(910) << endl; // a[9] = 910
+
+    cout << binary_search(52) << endl; // 6
+    cout << binary_search(0) << endl; // 0
+    cout << binary_search(911) << endl; // 10 (場外)
 }
