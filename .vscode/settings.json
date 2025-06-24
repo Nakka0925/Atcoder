@@ -80,5 +80,6 @@
       }
   ],
 
-  "vim.hlsearch": true
+"vim.hlsearch": true,
+"C_Cpp.errorSquiggles": "disabled"
 }
