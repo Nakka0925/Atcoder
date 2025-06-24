@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/MyCppCMakeProject.dir/src/main.cpp.o -o MyCppCMakeProject 

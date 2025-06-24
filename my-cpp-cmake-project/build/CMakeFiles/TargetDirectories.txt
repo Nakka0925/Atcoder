@@ -1,3 +1,0 @@
-/mnt/c/Users/ddaiy/OneDrive/デスクトップ/Atcoder/my-cpp-cmake-project/build/CMakeFiles/MyCppCMakeProject.dir
-/mnt/c/Users/ddaiy/OneDrive/デスクトップ/Atcoder/my-cpp-cmake-project/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/ddaiy/OneDrive/デスクトップ/Atcoder/my-cpp-cmake-project/build/CMakeFiles/rebuild_cache.dir
