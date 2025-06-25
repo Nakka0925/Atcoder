@@ -2,7 +2,7 @@ NAME		= main
 SRCS		= main.cpp
 CXX			= g++
 
-$(NAME):
+main: $(SRCS)
 	$(CXX) -o $(NAME) $(SRCS)
 
 .PHONY: clean
