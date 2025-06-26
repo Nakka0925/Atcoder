@@ -73,31 +73,29 @@ map<ll, ll> numeric_component(ll N) {
 }
 
 int main(void) {
-    int n,l; cin >> n >> l;
+    int t; cin >> t;
+    
+    rep(j,0,t) {
+        int n; cin >> n;
+        string s; cin >> s;
+        int l = -1;
+        int r = n;
+        rep(i,0,n-1) {
+            if (s[i+1] < s[i])
+                l = i;
+                break;
+        }
+        if (l == -1) {
+            cout << s << endl;
+            continue;
+        }
 
-    vi a(n-1); rep(i,0,n-1) cin >> a[i];
-    if (l % 3 != 0) {
-        cout << 0 << endl;
-        return 0;
+        rep(i,l+1,n) {
+            if (s[l] < s[i]) {
+                r = i;
+                break;
+            }
+        }
+        cout << s.substr(0, l) + s.substr(r) << endl;
     }
-
-    map<int, ll> mp; mp[0] = 1;
-    int pre = 0;
-    rep(i,0,n-1) {
-        
-        mp[(a[i]+pre) % l]++;
-        pre = (pre + a[i]) % l;
-    }
-
-    int end = l/3;
-    ll ans = 0;
-    fore(p, mp) {
-        if (p.first == end) break;;
-        int key = p.first;
-        int key2 = (p.first + l/3) % l;
-        int key3 = (p.first + 2 * l/3) % l;
-
-        ans += mp[key]*mp[key2]*mp[key3];
-    }
-    cout << ans << endl;
 }

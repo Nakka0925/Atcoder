@@ -79,13 +79,12 @@ int main(void) {
         int n; cin >> n;
         string s; cin >> s;
         int l = -1;
-        int r = n-1;
+        int r = n;
         rep(i,0,n-1) {
-            if (s[i+1] < s[i])
+            if (s[i+1] < s[i]) {
                 l = i;
-                cout << "i: " << i << endl;
-                cout << "l: " << l << endl;
                 break;
+            }
         }
         if (l == -1) {
             cout << s << endl;
@@ -98,6 +97,6 @@ int main(void) {
                 break;
             }
         }
-        cout << s.substr(0, l) + s.substr(r) << endl;
+        cout << s.substr(0, l)  + s.substr((l+1),r-l-1) + s[l] + s.substr(r,n-r) << endl;
     }
 }
