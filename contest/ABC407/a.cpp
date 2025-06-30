@@ -74,8 +74,6 @@ map<ll, ll> numeric_component(ll N) {
 
 int main(void) {
     int a,b; cin >> a >> b;
-    float c = a/b;
-    if (c < 1) cout << 1-c << endl;
-    else cout << min (c-int(c), int(c)+1-c) << endl;
+    cout << round(static_cast<double>(a) / b) << endl;
     return 0;
 }
